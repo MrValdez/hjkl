@@ -14,7 +14,7 @@ pygame.display.set_caption("HJKL shooter")
 font = pygame.font.Font("freesansbold.ttf", 30)
 font_mode = pygame.font.Font("freesansbold.ttf", 20)
 
-msg = ["123", "The quick brown fox jumps over the lazy dog"]
+msg = ["123", "expandtab", "visual block mode", "insertion mode", "emacs", "Frodo lives", "yank", "never give up never surrender", "escape", "map", "vimrc", "I like big butts and I cannot lie", "Leonardo", "Raphael", "Donatello", "Michaelengelo", "xkcd", "emacs", "emacs", "emacs", "notepad", "vim", "The quick brown fox jumps over the lazy dog"]
 current_msg = "hello world"
 currentBuffer = ""
 
