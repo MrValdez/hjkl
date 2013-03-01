@@ -3,7 +3,7 @@ import sys
 import random
 import math
 
-import pygame._view 
+# import pygame._view 
 
 pygame.init()
 clock = pygame.time.Clock()
@@ -136,7 +136,12 @@ class Troll:
 
 		collide = checkCollision(self, self.target)
 		if collide:
+			global life
+			life -= 5
+			life = life % 100
+
 			self.kill()
+
 
 	def kill(self):
 		global trollList
@@ -207,6 +212,8 @@ for i in range(12):
 
 deadTrollList = []
 bulletList = []
+
+life = 100
 
 while True:
 	clock.tick(60)
@@ -348,6 +355,17 @@ while True:
 	text = font_mode.render(currentMode.upper(), True, pygame.Color(0, 255, 0))	
 	text_pos = [resolution[0] / 2 - text.get_width() / 2,
 			    resolution[1] - text.get_height() - 20]
+	window.blit(text, text_pos)
+
+	# Life meter
+	pygame.draw.rect(window, pygame.Color(int(255 * (100 - life) / 100),
+	                 					  int(255 * life / 100),
+	                 					  0),
+	                 pygame.Rect(resolution[0] - 120, resolution[1] - 40,
+	                             life, 20))
+	text = font_mode.render("LIFE", True, pygame.Color(255, 255, 255))
+	text_pos = [resolution[0] - 120,
+				resolution[1] - text.get_height() - 50]
 	window.blit(text, text_pos)
 	
 	pygame.display.update()
